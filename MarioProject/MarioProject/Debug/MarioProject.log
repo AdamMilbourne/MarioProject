@@ -1,3 +1,7 @@
 ﻿  Main.cpp
-D:\MarioProject\MarioProject\MarioProject\Main.cpp(48): warning C4715: 'InitSDL': not all control paths return a value
+D:\MarioProject\MarioProject\MarioProject\Main.cpp(79,36): warning C4145: '==': relational expression as switch expression; possible confusion with '='
+D:\MarioProject\MarioProject\MarioProject\Main.cpp(85,48): warning C4145: '==': relational expression as switch expression; possible confusion with '='
+D:\MarioProject\MarioProject\MarioProject\Main.cpp(79,36): warning C4060: switch statement contains no 'case' or 'default' labels
+D:\MarioProject\MarioProject\MarioProject\Main.cpp(85,48): warning C4060: switch statement contains no 'case' or 'default' labels
+D:\MarioProject\MarioProject\MarioProject\Main.cpp(55): warning C4715: 'InitSDL': not all control paths return a value
   MarioProject.vcxproj -> D:\MarioProject\MarioProject\Debug\MarioProject.exe
