@@ -7,14 +7,21 @@ using namespace std;
 
 SDL_Window* g_window = nullptr;
 
+//functions initiated
 bool InitSDL();
 void CloseSDL();
+bool Update();
 
 int main(int argc, char* args[])
 {
+	bool quit = false;
+
 	if (InitSDL())
 	{
-		SDL_Delay(5000);
+		while (!quit)
+		{
+			quit = Update();
+		}
 	}
 	CloseSDL();
 
@@ -55,5 +62,31 @@ void CloseSDL()
 	IMG_Quit();
 	SDL_Quit();
 
+}
+
+bool Update()
+{
+	SDL_Event e;
+	SDL_PollEvent(&e);
+
+	switch (e.type)
+	{
+		//click x = quit
+	case SDL_QUIT:
+			return true;
+
+
+		switch (e.key.keysym.sym==SDLK_q);
+		//quit on q pressed
+	case SDL_KEYUP:
+		return true;
+
+
+		switch (e.key.keysym.sym == SDL_BUTTON_RIGHT);
+		//quit when right click anywhere in the window
+	case SDL_MOUSEBUTTONDOWN:
+		return true;
+	}
+	return false;
 }
 
