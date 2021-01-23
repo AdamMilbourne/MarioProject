@@ -1,2 +1,3 @@
-﻿  Source.cpp
+﻿  Main.cpp
+D:\MarioProject\MarioProject\MarioProject\Main.cpp(48): warning C4715: 'InitSDL': not all control paths return a value
   MarioProject.vcxproj -> D:\MarioProject\MarioProject\Debug\MarioProject.exe
