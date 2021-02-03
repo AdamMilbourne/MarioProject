@@ -79,7 +79,7 @@ bool InitSDL()
 	//load background texture
 	g_texture = new Texture2D(g_renderer);
 
-	if(!g_texture->LoadFromFile("Images/test.bmp"));
+	if(!g_texture->LoadFromFile("Images/test.bmp"))
 	{
 		return false;
 	}
