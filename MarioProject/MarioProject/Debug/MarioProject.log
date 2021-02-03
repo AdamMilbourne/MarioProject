@@ -1,7 +1,7 @@
 ﻿  Main.cpp
-D:\MarioProject\MarioProject\MarioProject\Main.cpp(82,49): warning C4390: ';': empty controlled statement found; is this the intent?
 D:\MarioProject\MarioProject\MarioProject\Main.cpp(119,36): warning C4145: '==': relational expression as switch expression; possible confusion with '='
 D:\MarioProject\MarioProject\MarioProject\Main.cpp(125,48): warning C4145: '==': relational expression as switch expression; possible confusion with '='
 D:\MarioProject\MarioProject\MarioProject\Main.cpp(119,36): warning C4060: switch statement contains no 'case' or 'default' labels
 D:\MarioProject\MarioProject\MarioProject\Main.cpp(125,48): warning C4060: switch statement contains no 'case' or 'default' labels
+D:\MarioProject\MarioProject\MarioProject\Main.cpp(88): warning C4715: 'InitSDL': not all control paths return a value
   MarioProject.vcxproj -> D:\MarioProject\MarioProject\Debug\MarioProject.exe
