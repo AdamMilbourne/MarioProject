@@ -2,7 +2,7 @@
 #ifndef _TEXTURE2D_H
 #define _TEXTURE2D_H
 #include <SDL.h>
-#include<string>
+#include <string>
 #include "Commons.h"
 class Texture2D
 {
@@ -28,5 +28,5 @@ private:
 #endif // !_TEXTURE2D_H
 
 #include <SDL.h>
-#include<string> 
+#include <string> 
 #include "Commons.h" 
