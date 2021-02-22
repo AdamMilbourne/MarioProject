@@ -127,17 +127,22 @@ bool Update()
 	case SDL_QUIT:
 			return true;
 
-
-		switch (e.key.keysym.sym==SDLK_q);
-		//quit on q pressed
 	case SDL_KEYUP:
-		return true;
+		switch (e.key.keysym.sym)
+		{
+			case SDLK_q:
+			return true;
+		}
+		//quit on q pressed
+	
 
 
-		switch (e.key.keysym.sym == SDL_BUTTON_RIGHT);
-		//quit when right click anywhere in the window
 	case SDL_MOUSEBUTTONDOWN:
-		return true;
+		switch (e.button.button)
+		{
+		case SDL_BUTTON_RIGHT:
+			return true;
+		}
 	}
 	game_screen_manager->Update((float)(new_time - g_old_time) / 1000.0f, e);
 	g_old_time = new_time;
