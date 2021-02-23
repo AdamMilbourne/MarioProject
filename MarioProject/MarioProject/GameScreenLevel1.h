@@ -5,7 +5,8 @@
 #include "Commons.h"
 #include "Character.h"
 
-class Character;
+class CharacterLuigi;
+class CharacterMario;
 class Texture2D;
 class GameScreenLevel1 : GameScreen
 {
@@ -18,7 +19,8 @@ public:
 private:
 	Texture2D* m_background_texture;
 	bool SetUpLevel1();
-	Character* my_character;
+	CharacterMario* Mario;
+	CharacterLuigi* Luigi;
 };
 #endif //_GAMESCREENLEVEL1_H
 #include "GameScreen.h"

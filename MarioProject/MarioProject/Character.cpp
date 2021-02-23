@@ -1,5 +1,6 @@
 #include "Character.h"
 #include "Texture2D.h"
+#include "constants.h"
 
 Character::Character(SDL_Renderer* renderer, string imagepath, Vector2D start_position)
 {
@@ -38,6 +39,21 @@ void Character::Render()
 }
 void Character::Update(float deltatime, SDL_Event e)
 {
+	AddGravity(deltatime);
+	//deal with jumping first
+	if (m_jumping)
+	{
+		//adjust position
+		m_position.y -= m_jump_force * deltatime;
+
+		//reduce jump force
+		m_jump_force -= JUMP_FORCE_DECREMENT * deltatime;
+
+		//is jump force 0?
+		if (m_jump_force <= 0.0f)
+			m_jumping = false;
+	}
+
 	if (m_moving_left)
 	{
 		MoveLeft(deltatime);
@@ -45,43 +61,6 @@ void Character::Update(float deltatime, SDL_Event e)
 	else if(m_moving_right)
 	{
 		MoveRight(deltatime);
-	}
-	switch (e.type)
-	{
-	case SDL_KEYDOWN:
-		switch (e.key.keysym.sym)
-		{
-		case SDLK_LEFT:
-			//m_position.x = m_position.x - 1;
-			//m_facing_direction = FACING_LEFT;
-			m_moving_left = true;
-			cout << "left key pressed" << endl;
-
-
-		case SDLK_RIGHT:
-			//m_position.x = m_position.x + 1;
-			//m_facing_direction = FACING_RIGHT;
-			m_moving_right = true;
-			cout << "right key pressed" << endl;
-		}
-		
-		break;
-	case SDL_KEYUP:
-	{
-	case SDLK_LEFT:
-		//m_position.x = m_position.x - 1;
-		//m_facing_direction = FACING_LEFT;
-		m_moving_left = false;
-		cout << "left key pressed" << endl;
-
-
-	case SDLK_RIGHT:
-		//m_position.x = m_position.x + 1;
-		//m_facing_direction = FACING_RIGHT;
-		m_moving_right = false;
-		cout << "right key pressed" << endl;
-	}
-
 	}
 }
 void Character::SetPosition(Vector2D new_position)
@@ -96,13 +75,37 @@ Vector2D Character::GetPostion()
 
 void Character::MoveRight(float deltatime)
 {
-	m_position.x = m_position.x + 1;
+	m_position.x += deltatime * MOVEMENTSPEED;
 	m_facing_direction = FACING_RIGHT;
 }
 
 void Character::MoveLeft(float deltatime)
 {
-	m_position.x = m_position.x - 1;
+	m_position.x -= deltatime * MOVEMENTSPEED;
 	m_facing_direction = FACING_LEFT;
 }
+
+void Character::AddGravity(float deltatime)
+{
+	if (m_position.y + MARIO_HEIGHT <= SCREEN_HEIGHT)
+	{
+		m_position.y += GRAVITY * deltatime;
+	}
+	else
+	{
+		m_can_jump = true;
+	}
+}
+
+void Character::Jump()
+{
+	if (!m_jumping)
+	{
+		m_jump_force = INITIAL_JUMP_FORCE;
+		m_jumping = true;
+		m_can_jump = false;
+	}
+
+}
+
 

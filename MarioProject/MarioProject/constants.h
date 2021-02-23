@@ -1,4 +1,9 @@
 #pragma once
 
-#define SCREEN_WIDTH 512
-#define SCREEN_HEIGHT 416
+#define SCREEN_WIDTH 500
+#define SCREEN_HEIGHT 400
+#define MOVEMENTSPEED 70.0f
+#define MARIO_HEIGHT 64
+#define GRAVITY 280.0f
+#define JUMP_FORCE_DECREMENT 400.0f
+#define INITIAL_JUMP_FORCE 570.0f
